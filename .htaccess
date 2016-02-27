@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /ci/
+
+RewriteCond %{REQUEST_URL} ^system.*
+RewriteRule ^(.*)$ /index.php?/$1 [l]
+
+RewriteCond %{REQUEST_URL} ^application.*
+RewriteRule ^(.*)$ /index.php?/$1 [l]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]
+</IfModule>
